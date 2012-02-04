@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<antlib>
+	<typedef name="excludejar" classname="org.apache.tools.ant.taskdefs.ExcludeJar" />
+</antlib>

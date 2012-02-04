@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="project" default="default">
+
+	<taskdef classpath="target/ant-tasks-ext-1.0.jar;${user.home}/.m2/repository/org/apache/ant/ant/1.7.0/ant-1.7.0.jar" resource="antlib.xml" />
+
+	<target name="default" depends="release">
+		<excludejar destfile="target/result.jar" basefile="target/base.jar" excludefile="target/exclude.jar" autoclean="true" work="./work" />
+	</target>
+
+	<target name="release">
+		<jar destfile="target/ant-tasks-ext-1.0.jar" basedir="target/classes">
+			<fileset dir="src/main/resources">
+				<include name="**/*.xml" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="make-test-jar">
+		<jar destfile="target/base.jar" basedir="target/test-classes" />
+		<jar destfile="target/exclude.jar" basedir="target/test-classes" includes="**/*3.class,**/*2.class" />
+	</target>
+</project>
